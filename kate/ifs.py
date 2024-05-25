@@ -1,17 +1,12 @@
 def ifs(aa,bb):
     O=[ str(i) for i in range(10)]
+    P=["⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹"]
     if bb=="*" or bb==" " or bb=='{' or bb=='}' or bb=='"':
         return ""
     elif aa=="*" and bb in O:
-        return "http://127.0.0.1:1000/gazou/a"+str(bb)+".gif"
-    elif bb=="/":
-        return "http://127.0.0.1:1000/gazou/sura.gif"
-    elif bb==":":
-        return "http://127.0.0.1:1000/gazou/tenn.gif"
+        return P[int(bb)]
     else:
-        return "http://127.0.0.1:1000/gazou/"+str(bb)+".gif"
-
-
+        return bb
 
 
 def qa(aa, bb, cc, dd):  # 10進数をn進数に変換

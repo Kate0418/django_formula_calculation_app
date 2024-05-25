@@ -3,6 +3,7 @@ from .forms import formA,formB,formC
 import sympy
 from .ifs import ifs,qa,rf
 import json
+from django.http import HttpResponse
 # Create your views here.
 def qq(aa):
     return render(aa,"kate/kate.html")
@@ -23,7 +24,7 @@ def ww(aa):
             rr=0
             tt=0
             yy=0
-            tukau=[]
+            tukau=[qq[0]] if qq[0] in A else []
             for i in range(1,ww):
                 if qq[i] in one:
                     rr=1
@@ -60,13 +61,12 @@ def ww(aa):
                     else:
                         ii=0
                     uu+=i
-            url=[ ifs(uu[i-1],uu[i]) for i in range(1,len(uu)) if ifs(uu[i-1],uu[i]) != " "]
+            url=[ ifs(uu[i-1],uu[i]) for i in range(1,len(uu))]
         if uu=="":
             uu=["*"]
         context={
             "form":formA,
-            "url":url,
-            "uu":ifs(0,uu[0]),
+            "ans":"".join([ifs(0,uu[0])]+url),
         }
         return render(aa,"kate/insuu.html",context)
     except Exception as e:
@@ -123,12 +123,14 @@ def rr(aa):
             rr=0
             tt=0
             yy=0
-            tukau=[]
+            tukau=[qq[0]] if qq[0] in A else []
             for i in range(1,ww):
                 if qq[i] in one:
                     rr=1
                 elif qq[i] in A:
                     rr=2
+                    if qq[i] not in tukau:
+                        tukau.append(qq[i])
                 if qq[i-1] in one:
                     tt=1
                 elif qq[i-1] in A:
@@ -146,7 +148,7 @@ def rr(aa):
                 rr=0
                 tt=0
                 yy=0
-            if "**" in ee:
+            if "**" in ee or len(tukau)!=1:
                 raise Exception("Invalid character in input")
             kekka=sympy.solve(ee)
             ii=0
@@ -164,8 +166,7 @@ def rr(aa):
             uu=["*"]
         context={
         "form":formA,
-        "url":url,
-        "uu":ifs(0,uu[0]),
+        "ans":"".join([ifs(0,uu[0])]+url),
         }
         return render(aa,"kate/houtei1.html",context)
     except Exception as e:
@@ -188,12 +189,14 @@ def tt(aa):
             rr=0
             tt=0
             yy=0
-            tukau=[]
+            tukau=[qq[0]] if qq[0] in A else []
             for i in range(1,ww):
                 if qq[i] in one:
                     rr=1
                 elif qq[i] in A:
                     rr=2
+                    if qq[i] not in tukau:
+                        tukau.append(qq[i])
                 if qq[i-1] in one:
                     tt=1
                 elif qq[i-1] in A:
@@ -211,6 +214,8 @@ def tt(aa):
                 rr=0
                 tt=0
                 yy=0
+            if "**2" not in ee or len(tukau)!=1:
+                raise Exception("Invalid character in input")
             kekka=sympy.solve(ee)
             ii=0
             pp=""
@@ -233,7 +238,7 @@ def tt(aa):
                     ii+=1
                     oo+=i
                 elif oo=="sqrt" and i=="(":
-                    uu+="$"
+                    uu+="√"
                     uu+="("
                     oo=""
                 else:
@@ -241,13 +246,15 @@ def tt(aa):
                     uu+=oo
                     oo=""
                     uu+=i
+            for i in ["*0","*1","*2*","*3","*4","*5","*6","*7","*8","*9"]:
+                if i in uu:
+                    raise Exception("Invalid character in input")
             url=[ ifs(uu[i-1],uu[i]) for i in range(1,len(uu))]
         if uu=="":
             uu=["*"]
         context={
         "form":formA,
-        "url":url,
-        "uu":ifs(0,uu[0]),
+        "ans":"".join([ifs(0,uu[0])]+url),
         }
         return render(aa,"kate/houtei2.html",context)
     except Exception as e:
@@ -274,7 +281,7 @@ def yy(aa):
             rr=0
             tt=0
             yy=0
-            tukau=[]
+            tukau=[qq[0]] if qq[0] in A else []
             for i in range(1,WW):
                 if qq[i] in one:
                     rr=1
@@ -335,12 +342,10 @@ def yy(aa):
             uu=str(kekka)
             url=[ ifs(uu[i-1],uu[i]) for i in range(1,len(uu))]
         if uu=="":
-            uu=["*"]
-
+            uu=["*"]            
         context={
             "form":formC,
-            "url":url,
-            "uu":ifs(0,uu[0])
+            "ans":"".join([ifs(0,uu[0])]+url),
         }
         return render(aa,"kate/renritu.html",context)
     except Exception as e:
