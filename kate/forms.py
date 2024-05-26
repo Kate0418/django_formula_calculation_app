@@ -1,7 +1,7 @@
 from django import forms
 
 class formA(forms.Form):
-    qq=forms.CharField(label="式",widget=forms.Textarea(attrs={'cols': '60', 'rows': '1','style': 'font-size: 30px;'}))
+    qq=forms.CharField(label="式",widget=forms.Textarea(attrs={'cols': '50', 'rows': '1','style': 'font-size: 30px;'}))
 class formB(forms.Form):
     class qq(forms.Form):
         QQ=(
@@ -84,10 +84,10 @@ class formB(forms.Form):
         ('36', '36'))
         ww=forms.ChoiceField(label="変換後",choices=WW)
     class ee(forms.Form):
-        ee=forms.CharField(label="変換する数",widget=forms.Textarea(attrs={'cols': '60', 'rows': '1','style': 'font-size: 30px;'}))
+        ee=forms.CharField(label="変換する数",widget=forms.Textarea(attrs={'cols': '50', 'rows': '1','style': 'font-size: 30px;'}))
 class formC(forms.Form):
     class qq(forms.Form):
-        qq=forms.CharField(label="式①",widget=forms.Textarea(attrs={'cols': '60', 'rows': '1','style': 'font-size: 30px;'}))
+        qq=forms.CharField(label="式①",widget=forms.Textarea(attrs={'cols': '50', 'rows': '1','style': 'font-size: 30px;'}))
     class ww(forms.Form):
-        ww=forms.CharField(label="式②",widget=forms.Textarea(attrs={'cols': '60', 'rows': '1','style': 'font-size: 30px;'}))
+        ww=forms.CharField(label="式②",widget=forms.Textarea(attrs={'cols': '50', 'rows': '1','style': 'font-size: 30px;'}))
 

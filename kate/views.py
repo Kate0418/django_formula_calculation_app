@@ -70,7 +70,7 @@ def ww(aa):
         }
         return render(aa,"kate/insuu.html",context)
     except Exception as e:
-        return redirect("{% url 'kate:uu' %}")
+        return redirect("http://18.181.79.209:8000/era")
 def ee(aa):
     try:
         qq=formB().qq(aa.GET)
@@ -105,7 +105,7 @@ def ee(aa):
         }
         return render(aa,"kate/sinsuu.html",context)
     except Exception as e:
-        return redirect("{% url 'kate:uu' %}")
+        return redirect("http://18.181.79.209:8000/era")
 def rr(aa):
     try:
         qq=formA(aa.GET)
@@ -170,7 +170,7 @@ def rr(aa):
         }
         return render(aa,"kate/houtei1.html",context)
     except Exception as e:
-        return redirect("{% url 'kate:uu' %}")
+        return redirect("http://18.181.79.209:8000/era")
             
 def tt(aa):
     try:
@@ -258,7 +258,7 @@ def tt(aa):
         }
         return render(aa,"kate/houtei2.html",context)
     except Exception as e:
-        return redirect("{% url 'kate:uu' %}")
+        return redirect("http://18.181.79.209:8000/era")
 def yy(aa):
     try:
         url=[]
@@ -349,6 +349,6 @@ def yy(aa):
         }
         return render(aa,"kate/renritu.html",context)
     except Exception as e:
-        return redirect("{% url 'kate:uu' %}")
+        return redirect("http://18.181.79.209:8000/era")
 def uu(aa):
     return render(aa,"kate/era.html")
