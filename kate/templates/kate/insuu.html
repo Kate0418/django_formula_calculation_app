@@ -10,12 +10,14 @@
         }
         h1{ text-align: center }
         button{
-            width: 300px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #68779a;
-    background: #cbe8fa;
-    cursor: pointer;
+            width: 500px;
+            height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #68779a;
+            background: #cbe8fa;
+            cursor: pointer;
+            font-size: 50px;
         }
         a{
                 position: absolute;
@@ -30,7 +32,7 @@
             width:75%;
         }
         p{
-            font-size: 50px;
+            font-size: 75px;
             text-align: center;
         }
     </style>
@@ -39,7 +41,7 @@
         <h1><img class="img1" src="{% static 'kate/注意書き.gif' %}"></h1>
         <form action="{% url 'kate:ww' %}">
         <h1>{{form}}</h1>
-        <h1><button type="submit">0K</button></h1>
+        <h1><button type="submit">0&nbsp;K</button></h1>
         </form>
         <h1>
             結果：{{ans}}
