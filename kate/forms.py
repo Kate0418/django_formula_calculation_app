@@ -1,7 +1,7 @@
 from django import forms
 
 class formA(forms.Form):
-    qq=forms.CharField(label="式")
+    qq=forms.CharField(label="式",widget=forms.Textarea(attrs={'cols': '90', 'rows': '2'}))
 class formB(forms.Form):
     class qq(forms.Form):
         QQ=(
@@ -84,10 +84,10 @@ class formB(forms.Form):
         ('36', '36'))
         ww=forms.ChoiceField(label="変換後",choices=WW)
     class ee(forms.Form):
-        ee=forms.CharField(label="変換する数")
+        ee=forms.CharField(label="変換する数",widget=forms.Textarea(attrs={'cols': '90', 'rows': '2'}))
 class formC(forms.Form):
     class qq(forms.Form):
-        qq=forms.CharField(label="式①")
+        qq=forms.CharField(label="式①",widget=forms.Textarea(attrs={'cols': '90', 'rows': '2'}))
     class ww(forms.Form):
-        ww=forms.CharField(label="式②")
+        ww=forms.CharField(label="式②",widget=forms.Textarea(attrs={'cols': '90', 'rows': '2'}))
 
