@@ -70,7 +70,7 @@ def ww(aa):
         }
         return render(aa,"kate/insuu.html",context)
     except Exception as e:
-        return redirect("http://127.0.0.1:8000/era")
+        return redirect("{% url 'kate:uu' %}")
 def ee(aa):
     try:
         qq=formB().qq(aa.GET)
@@ -105,7 +105,7 @@ def ee(aa):
         }
         return render(aa,"kate/sinsuu.html",context)
     except Exception as e:
-        return redirect("http://127.0.0.1:8000/era")
+        return redirect("{% url 'kate:uu' %}")
 def rr(aa):
     try:
         qq=formA(aa.GET)
@@ -117,7 +117,7 @@ def rr(aa):
             A=[ chr(i) for i in range(97, 123)]
             for i in str(qq):
                 if i not in one and i not in A and i!="+" and i!="-" and i!="(" and i!=")" and i!="/":
-                    raise Exception("Invalid character in input")
+                    raise Exception("{% url 'kate:uu' %}")
             ww=len(qq)
             ee=qq[0]
             rr=0
@@ -170,7 +170,7 @@ def rr(aa):
         }
         return render(aa,"kate/houtei1.html",context)
     except Exception as e:
-        return redirect("http://127.0.0.1:8000/era")
+        return redirect("{% url 'kate:uu' %}")
             
 def tt(aa):
     try:
@@ -258,7 +258,7 @@ def tt(aa):
         }
         return render(aa,"kate/houtei2.html",context)
     except Exception as e:
-        return redirect("http://127.0.0.1:8000/era")
+        return redirect("{% url 'kate:uu' %}")
 def yy(aa):
     try:
         url=[]
@@ -349,6 +349,6 @@ def yy(aa):
         }
         return render(aa,"kate/renritu.html",context)
     except Exception as e:
-        return redirect("http://127.0.0.1:8000/era")
+        return redirect("{% url 'kate:uu' %}")
 def uu(aa):
     return render(aa,"kate/era.html")
